@@ -4,19 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= user ? 'Edit User' : 'Add User' %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            display: flex;
+            flex-direction: column;
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1><%= user ? 'Edit User' : 'Add User' %></h1>
-    <form action="<%= user ? '/users/' + user.user_id + '?_method=PUT' : '/users' %>" method="POST">
-        <label>First Name: <input type="text" name="first_name" value="<%= user ? user.first_name : '' %>" required></label><br>
-        <label>Last Name: <input type="text" name="last_name" value="<%= user ? user.last_name : '' %>" required></label><br>
-        <label>Mission Call: <input type="text" name="mission_call" value="<%= user ? user.mission_call : '' %>"></label><br>
-        <label>Home Address: <input type="text" name="home_address" value="<%= user ? user.home_address : '' %>"></label><br>
-        <label>Home City: <input type="text" name="home_city" value="<%= user ? user.home_city : '' %>"></label><br>
-        <label>Home State: <input type="text" name="home_state" value="<%= user ? user.home_state : '' %>"></label><br>
-        <label>Home Country: <input type="text" name="home_country" value="<%= user ? user.home_country : '' %>"></label><br>
-        <label>Home Zip: <input type="text" name="home_zip" value="<%= user ? user.home_zip : '' %>"></label><br>
-        <button type="submit"><%= user ? 'Update' : 'Add' %> User</button>
-    </form>
+    <div class="container">
+        <h1><%= user ? 'Edit User' : 'Add User' %></h1>
+        <form action="<%= user ? '/users/' + user.user_id + '?_method=PUT' : '/users' %>" method="POST">
+            <label>
+                First Name:
+                <input type="text" name="first_name" value="<%= user ? user.first_name : '' %>" required>
+            </label>
+            <label>
+                Last Name:
+                <input type="text" name="last_name" value="<%= user ? user.last_name : '' %>" required>
+            </label>
+            <label>
+                Mission Call:
+                <input type="text" name="mission_call" value="<%= user ? user.mission_call : '' %>">
+            </label>
+            <label>
+                Home Address:
+                <input type="text" name="home_address" value="<%= user ? user.home_address : '' %>">
+            </label>
+            <label>
+                Home City:
+                <input type="text" name="home_city" value="<%= user ? user.home_city : '' %>">
+            </label>
+            <label>
+                Home State:
+                <input type="text" name="home_state" value="<%= user ? user.home_state : '' %>">
+            </label>
+            <label>
+                Home Country:
+                <input type="text" name="home_country" value="<%= user ? user.home_country : '' %>">
+            </label>
+            <label>
+                Home Zip:
+                <input type="text" name="home_zip" value="<%= user ? user.home_zip : '' %>">
+            </label>
+            <button type="submit"><%= user ? 'Update' : 'Add' %> User</button>
+        </form>
+    </div>
 </body>
 </html>
